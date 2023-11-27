@@ -63,7 +63,6 @@ plt.title('Decision Tree Accuracy for Different Max Depths and Criteria')
 plt.legend()
 plt.grid(True)
 plt.show()
-
 # Creating a DataFrame to plot
 df = pd.DataFrame(parameters)
 df['Accuracy'] = scores
