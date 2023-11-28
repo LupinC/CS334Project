@@ -5,6 +5,7 @@ import joblib
 # Load the saved model
 model = joblib.load('models/knn_model.pkl')
 model2 = joblib.load('models/decision_tree_model.pkl')
+model3 = joblib.load('models/nn_model.pkl')
 
 # Streamlit webpage title
 st.title('Health Prediction Tool')
@@ -67,9 +68,10 @@ if st.button('Predict'):
     # Make a prediction
     prediction = model.predict(input_df)
     prediction2 = model2.predict(input_df)
+    prediction3 = model3.predict(input_df)
 
     # Display the prediction
-    if prediction[0] == 1:
+    if prediction[0] + prediction2[0] + prediction3[0] >= 1.5:
         st.success('Yes')
     else:
         st.error('No')

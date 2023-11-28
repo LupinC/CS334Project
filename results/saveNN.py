@@ -1,5 +1,5 @@
 import pandas as pd
-from sklearn.neighbors import KNeighborsClassifier
+from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import train_test_split
 import joblib
 
@@ -30,20 +30,20 @@ y = data['HadHeartAttack']
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Train the KNN model
-knn = KNeighborsClassifier(n_neighbors=23, metric='euclidean')
-knn.fit(X_train, y_train)
+# Train the nn model
+mlp = MLPClassifier(activation='relu', alpha=0.05, hidden_layer_sizes=(10,), learning_rate='constant', solver='adam', random_state=42)
+mlp.fit(X_train, y_train)
 
 # Save the model
-joblib.dump(knn, '../models/knn_model.pkl')
+joblib.dump(mlp, '../models/nn_model.pkl')
 
-# Prediction function
-def predict_knn(input_data):
-    model = joblib.load('../models/knn_model.pkl')
+# Prediction function for nn
+def predict_mlp(input_data):
+    model = joblib.load('../models/nn_model.pkl')
     input_df = pd.DataFrame([input_data], columns=features)
     prediction = model.predict(input_df)
     return prediction[0]
 
-# Example usage
+# Example usage for nn
 input_tuple = (5, 2, 1, 7, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 70, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1)
-print(predict_knn(input_tuple))
+print(predict_mlp(input_tuple))

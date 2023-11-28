@@ -23,7 +23,7 @@ features = ['PhysicalHealthDays', 'MentalHealthDays', 'PhysicalActivities', 'Sle
             'AgeCategory_Age 40 to 44', 'AgeCategory_Age 65 to 69', 'AgeCategory_Age 70 to 74',
             'AgeCategory_Age 75 to 79', 'AgeCategory_Age 80 or older', 'TetanusLast10Tdap_Yes, received Tdap']
 
-# Assuming 'target' is the column name for the target variable
+# Assign x and y
 X = data[features]
 y = data['HadHeartAttack']
 
