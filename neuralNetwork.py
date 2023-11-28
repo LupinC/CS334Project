@@ -11,7 +11,7 @@ from keras.wrappers.scikit_learn import KerasClassifier
 from sklearn.model_selection import GridSearchCV
 
 # Load data
-data = pd.read_csv('train.csv')
+data = pd.read_csv('encoded_heart_data.csv')
 
 # Feature selection with Lasso
 y = data['HadHeartAttack']
@@ -23,6 +23,10 @@ X_selected = X.loc[:, important_features]
 # Standardize the data
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X_selected)
+
+# Print the names of selected features
+selected_feature_names = X.columns[important_features]
+print("Selected Features:", selected_feature_names.tolist())
 
 # Define the model creation function
 def create_model(layers, activation):

@@ -8,7 +8,7 @@ from sklearn.metrics import roc_curve, auc
 import matplotlib.pyplot as plt
 
 # Load data
-data = pd.read_csv('encoded_heart_data.csv')
+data = pd.read_csv('../encoded_heart_data.csv')
 
 # Feature selection with Lasso
 y = data['HadHeartAttack']

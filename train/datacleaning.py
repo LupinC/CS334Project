@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load the dataset
-file_path = 'heart_2022_no_nans.csv'
+file_path = '../heart_2022_no_nans.csv'
 df = pd.read_csv(file_path)
 
 def encode_categorical_variables(df):
@@ -30,7 +30,7 @@ encoded_df = encode_categorical_variables(df)
 print(encoded_df.head())
 
 # Define the file path where you want to save the dataset
-output_file_path = 'encoded_heart_data.csv'
+output_file_path = '../encoded_heart_data.csv'
 
 # Save the dataframe to a CSV file
 encoded_df.to_csv(output_file_path, index=False)
