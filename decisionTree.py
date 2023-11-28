@@ -8,11 +8,11 @@ from sklearn.metrics import roc_curve, auc
 import matplotlib.pyplot as plt
 
 # Load data
-data = pd.read_csv('train.csv')
+data = pd.read_csv('encoded_heart_data.csv')
 
 # Feature selection with Lasso
-y = data['HadHeartDisease']
-X = data.drop('HadHeartDisease', axis=1)
+y = data['HadHeartAttack']
+X = data.drop('HadHeartAttack', axis=1)
 lasso = LassoCV().fit(X, y)
 important_features = lasso.coef_ != 0
 X_selected = X.loc[:, important_features]
@@ -70,17 +70,16 @@ df['Accuracy'] = scores
 # Plotting accuracy for different 'min_samples_leaf'
 plt.figure(figsize=(12, 8))
 
+# Plotting for each criterion
 for criterion in ['gini', 'entropy']:
-    for max_depth in range(1, 11):
-        subset = df[(df['criterion'] == criterion) & (df['max_depth'] == max_depth)]
-        if not subset.empty:
-            plt.plot(subset['min_samples_leaf'], subset['Accuracy'],
-                     label=f'Criterion: {criterion}, Max Depth: {max_depth}')
+    # Filter the DataFrame for each criterion and aggregate by min_samples_leaf
+    subset = df[df['criterion'] == criterion].groupby('min_samples_leaf').max()
+    plt.plot(subset.index, subset['Accuracy'], label=f'Criterion: {criterion}')
 
 plt.xlabel('Min Samples Leaf')
 plt.ylabel('Accuracy')
-plt.title('Decision Tree Accuracy for Different Min Samples Leaf, Criteria, and Max Depths')
-plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.title('Decision Tree Accuracy for Different Min Samples Leaf, Criteria')
+plt.legend()
 plt.grid(True)
 plt.show()
 

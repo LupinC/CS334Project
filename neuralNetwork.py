@@ -14,8 +14,8 @@ from sklearn.model_selection import GridSearchCV
 data = pd.read_csv('train.csv')
 
 # Feature selection with Lasso
-y = data['HadHeartDisease']
-X = data.drop('HadHeartDisease', axis=1)
+y = data['HadHeartAttack']
+X = data.drop('HadHeartAttack', axis=1)
 lasso = LassoCV().fit(X, y)
 important_features = lasso.coef_ != 0
 X_selected = X.loc[:, important_features]
