@@ -14,8 +14,6 @@ physical_health_days = st.number_input('Physical Health Days', min_value=0, max_
 mental_health_days = st.number_input('Mental Health Days', min_value=0, max_value=31, value=0, step=1)
 sleep_hours = st.number_input('Sleep Hours', min_value=0, max_value=24, value=0, step=1)
 weight_in_kilograms = st.number_input('Weight in Kilograms', min_value=0.0, max_value=200.0, value=0.0, step=0.1)
-
-# Binary inputs (0 or 1)
 had_angina = st.selectbox('Had Angina', options=[0, 1])
 had_stroke = st.selectbox('Had Stroke', options=[0, 1])
 had_asthma = st.selectbox('Had Asthma', options=[0, 1])
@@ -29,8 +27,6 @@ chest_scan = st.selectbox('Chest Scan', options=[0, 1])
 alcohol_drinkers = st.selectbox('Alcohol Drinkers', options=[0, 1])
 flu_vax_last_12 = st.selectbox('Flu Vaccine Last 12 Months', options=[0, 1])
 pneumo_vax_ever = st.selectbox('Ever Had Pneumonia Vaccine', options=[0, 1])
-
-# True/False inputs
 sex_female = st.selectbox('Sex_Female', options=[0, 1])
 sex_male = st.selectbox('Sex_Male', options=[0, 1])
 general_health_excellent = st.selectbox('GeneralHealth_Excellent', options=[0, 1])
@@ -78,4 +74,3 @@ if st.button('Predict'):
     else:
         st.error('No')
 
-# Run this script using 'streamlit run your_script_name.py'

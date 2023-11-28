@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, auc
 from sklearn.model_selection import KFold
@@ -36,7 +35,7 @@ def create_model(layers, activation):
             model.add(Dense(nodes, input_dim=X_scaled.shape[1], activation=activation))
         else:
             model.add(Dense(nodes, activation=activation))
-    model.add(Dense(1, activation='sigmoid'))  # Assuming binary classification
+    model.add(Dense(1, activation='sigmoid'))
     model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
     return model
 
