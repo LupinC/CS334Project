@@ -80,3 +80,21 @@ if st.button('Predict'):
     else:
         st.error('No')
 
+# docker commands
+# sudo docker build -t mlproject .
+# sudo docker run -p 8501:8501 mlproject
+# nginx configration
+# server {
+#     listen 80;
+#     listen [::]:80;
+#     server_name _;
+#
+#     location / {
+#         proxy_pass http://localhost:8501;
+#         proxy_http_version 1.1;
+#         proxy_set_header Upgrade $http_upgrade;
+#         proxy_set_header Connection "upgrade";
+#         proxy_set_header Host $host;
+#     }
+# }
+
