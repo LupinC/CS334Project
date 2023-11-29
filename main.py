@@ -70,8 +70,12 @@ if st.button('Predict'):
     prediction2 = model2.predict(input_df)
     prediction3 = model3.predict(input_df)
 
+    # print(prediction)
+    #
+    # res = (prediction[0] + prediction2[0] + prediction3[0])/3
+    # print(res)
     # Display the prediction
-    if prediction[0] + prediction2[0] + prediction3[0] >= 1.5:
+    if prediction[0] + prediction2[0] + prediction3[0] > 0:
         st.success('Yes')
     else:
         st.error('No')
