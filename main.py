@@ -76,9 +76,9 @@ if st.button('Predict'):
     # print(res)
     # Display the prediction
     if prediction[0] + prediction2[0] + prediction3[0] > 0:
-        st.success('Yes')
+        st.error('Sorry, you are likely to have a heart attack')
     else:
-        st.error('No')
+        st.success('Luckily, you are not likely to have a heart attack')
 
 # docker commands
 # sudo docker build -t mlproject .
