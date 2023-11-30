@@ -8,19 +8,19 @@ The purpose is to predict whether someone will have a heart attack or not and th
 2. install nginx `sudo yum install nginx`
 3. change nginx configration `sudo nano /etc/nginx/nginx.conf`for server to:
 
-server {
-     listen 80;
-     listen [::]:80;
-     server_name _;
-   
-     location / {
-         proxy_pass http://localhost:8501;
-         proxy_http_version 1.1;
-         proxy_set_header Upgrade $http_upgrade;
-         proxy_set_header Connection "upgrade";
-         proxy_set_header Host $host;
+     server {
+          listen 80;
+          listen [::]:80;
+          server_name _;
+        
+          location / {
+              proxy_pass http://localhost:8501;
+              proxy_http_version 1.1;
+              proxy_set_header Upgrade $http_upgrade;
+              proxy_set_header Connection "upgrade";
+              proxy_set_header Host $host;
+          }
      }
-}
   
   
 5. reconfig nginx `sudo systemctl restart nginx`
