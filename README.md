@@ -7,6 +7,8 @@ The purpose is to predict whether someone will have a heart attack or not and th
 1. install docker `sudo yum install docker` and start docker `sudo systemctl start docker`
 2. install nginx `sudo yum install nginx`
 3. change nginx configration `sudo nano /etc/nginx/nginx.conf`for server to:
+
+   
     server {
      listen 80;
      listen [::]:80;
@@ -20,6 +22,8 @@ The purpose is to predict whether someone will have a heart attack or not and th
          proxy_set_header Host $host;
      }
  }
+  
+  
 4. reconfig nginx `sudo systemctl restart nginx`
 5. git clone https://github.com/LupinC/CS334Project.git
 6. modify the code inside if you want, follow the comment if needed
