@@ -9,7 +9,7 @@ The purpose is to predict whether someone will have a heart attack or not and th
 3. change nginx configration `sudo nano /etc/nginx/nginx.conf`for server to:
 
    
-    server {
+server {
      listen 80;
      listen [::]:80;
      server_name _;
