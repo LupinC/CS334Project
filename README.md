@@ -12,7 +12,6 @@ server {
      listen 80;
      listen [::]:80;
      server_name _;
-
      location / {
          proxy_pass http://localhost:8501;
          proxy_http_version 1.1;
