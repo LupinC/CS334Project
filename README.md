@@ -12,6 +12,7 @@ The purpose is to predict whether someone will have a heart attack or not and th
      listen 80;
      listen [::]:80;
      server_name _;
+   
      location / {
          proxy_pass http://localhost:8501;
          proxy_http_version 1.1;
@@ -19,11 +20,12 @@ The purpose is to predict whether someone will have a heart attack or not and th
          proxy_set_header Connection "upgrade";
          proxy_set_header Host $host;
      }
+   
     }
   
   
-4. reconfig nginx `sudo systemctl restart nginx`
-5. git clone https://github.com/LupinC/CS334Project.git
-6. modify the code inside if you want, follow the comment if needed
-7. `cd projectdirectory` and build docker image/container: `sudo docker build -t giveitanameyoulike .`
-8. load up the website `sudo docker run -p 8501:8501 giveitanameyoulike`
+5. reconfig nginx `sudo systemctl restart nginx`
+6. git clone https://github.com/LupinC/CS334Project.git
+7. modify the code inside if you want, follow the comment if needed
+8. `cd projectdirectory` and build docker image/container: `sudo docker build -t giveitanameyoulike .`
+9. load up the website `sudo docker run -p 8501:8501 giveitanameyoulike`
