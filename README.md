@@ -8,7 +8,7 @@ The purpose is to predict whether someone will have a heart attack or not and th
 2. install nginx `sudo yum install nginx`
 3. change nginx configration `sudo nano /etc/nginx/nginx.conf`for server to:
 
-     server {
+     `server {
           listen 80;
           listen [::]:80;
           server_name _;
@@ -20,7 +20,7 @@ The purpose is to predict whether someone will have a heart attack or not and th
               proxy_set_header Connection "upgrade";
               proxy_set_header Host $host;
           }
-     }
+     }`
   
   
 5. reconfig nginx `sudo systemctl restart nginx`
